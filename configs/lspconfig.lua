@@ -1,27 +1,39 @@
 local on_attach = require("plugins.configs.lspconfig").on_attach
 local capabilities = require("plugins.configs.lspconfig").capabilities
-
 local lspconfig = require "lspconfig"
 
--- if you just want default config for the servers then put them in a table
-local servers = { "html", "cssls", "tsserver", "clangd", "rust_analyzer", "eslint" }
+local language_servers = lspconfig.util.available_servers()
 
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-  }
+for _, lsp in ipairs(language_servers) do
+  if lsp ~= "lua_ls" then
+    lspconfig[lsp].setup {
+      on_attach = on_attach,
+      capabilities = capabilities,
+    }
+  end
 end
 
--- 
--- lspconfig.pyright.setup { blabla}
+local util = require "custom.configs.util"
 
-lspconfig"tsserver".setup({
-	init_options = {
-		hostInfo = "neovim",
-		preferences = {
-			importModuleSpecifierPreference = "non-relative",
-		},
-	},
-})
+lspconfig["tsserver"].setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  init_options = {
+    preferences = {
+      importModuleSpecifierPreference = "non-relative",
+    },
+  },
+}
 
+lspconfig["eslint"].setup {
+  capabilities = capabilities,
+  on_attach = function(client, bufnr)
+    on_attach(client, bufnr)
+
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      buffer = bufnr,
+      command = "EslintFixAll",
+    })
+  end,
+  settings = util.eslint_settings,
+}

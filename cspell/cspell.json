@@ -1,0 +1,39 @@
+{
+  "version": "0.2",
+  "dictionaries": ["neovim", "en"],
+  "ignorePaths": ["node_modules", ".git", ".vscode"],
+  "ignoreRegExpList": ["\\b\\d+[a-z]{1,2}\\b"],
+  "allowCompoundWords": true,
+  "words": [
+    "nvim",
+    "neovim",
+    "alacritty",
+    "gruvbox",
+    "dotenv",
+    "yanky",
+    "lspconfig",
+    "stylelua",
+    "luarc",
+    "floaterm",
+    "autocmd",
+    "clippy",
+    "pbcopy",
+    "rustfmt",
+    "stylua",
+    "nvimtree",
+    "deno",
+    "clangd",
+    "nvterm",
+    "bufnr",
+    "bufs"
+  ],
+  "language": "en",
+  "dictionaryDefinitions": [
+    {
+      "name": "neovim",
+      "addWords": true,
+      "path": "~/.config/nvim/lua/custom/cspell/my-dictionary.txt"
+    }
+  ]
+}
+
