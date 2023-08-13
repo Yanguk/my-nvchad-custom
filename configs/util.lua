@@ -21,7 +21,7 @@ M.eslint_settings = get_eslint_settings()
 M.toggle_trailing_space = (function()
   local isHighlightEnabled = false
 
-  function toggle()
+  return function()
     if isHighlightEnabled then
       vim.cmd "highlight clear ExtraWhitespace"
       vim.cmd "match none"
@@ -32,8 +32,6 @@ M.toggle_trailing_space = (function()
 
     isHighlightEnabled = not isHighlightEnabled
   end
-
-	return toggle
 end)()
 
 return M

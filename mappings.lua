@@ -1,6 +1,5 @@
 local util = require "custom.configs.util"
 ---@type MappingsTable
-
 local M = {}
 
 M.general = {
@@ -86,7 +85,7 @@ M.nvimtree = {
   },
 }
 
-M.restnvim = {
+M.rest_nvim = {
   n = {
     ["<leader>ru"] = { "<Plug>RestNvim", "Rest under cursor" },
     ["<leader>rp"] = { "<Plug>RestNvimPreview", "Rest preview" },
@@ -97,6 +96,81 @@ M.restnvim = {
 M.lazyGit = {
   n = {
     ["<leader>gg"] = { ":LazyGit <CR>", "Open lazyGit" },
+  },
+}
+
+M.trouble = {
+  n = {
+    ["<leader>lo"] = {
+      function()
+        require("trouble").open()
+      end,
+      "Open Trouble",
+      opts = { silent = true },
+    },
+    ["<leader>lw"] = {
+      function()
+        require("trouble").open "workspace_diagnostics"
+      end,
+      "Open Workspace Diagnostics in Trouble",
+      opts = { silent = true },
+    },
+    ["<leader>ld"] = {
+      function()
+        require("trouble").open "document_diagnostics"
+      end,
+      "Open Document Diagnostics in Trouble",
+      opts = { silent = true },
+    },
+    ["<leader>lx"] = {
+      function()
+        require("trouble").close()
+      end,
+      "Close Trouble",
+      opts = { silent = true },
+    },
+    ["<leader>Q"] = {
+      function()
+        require("trouble").open "quickfix"
+      end,
+      "Open Quickfix List in Trouble",
+      opts = { silent = true },
+    },
+    ["<leader>q"] = {
+      function()
+        require("trouble").open "loclist"
+      end,
+      "Open Location List in Trouble",
+      opts = { silent = true },
+    },
+    ["gD"] = {
+      function()
+        require("trouble").open "lsp_type_definitions"
+      end,
+      "LSP Type Definitions in Trouble",
+      opts = { silent = true },
+    },
+    ["gi"] = {
+      function()
+        require("trouble").open "lsp_implementations"
+      end,
+      "LSP implementations in Trouble",
+      opts = { silent = true },
+    },
+    ["gd"] = {
+      function()
+        require("trouble").open "lsp_definitions"
+      end,
+      "LSP definitions in Trouble",
+      opts = { silent = true },
+    },
+    ["gr"] = {
+      function()
+        require("trouble").open "lsp_references"
+      end,
+      "Open LSP References in Trouble",
+      opts = { silent = true },
+    },
   },
 }
 

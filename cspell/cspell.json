@@ -1,39 +1,27 @@
 {
-  "version": "0.2",
-  "dictionaries": ["neovim", "en"],
-  "ignorePaths": ["node_modules", ".git", ".vscode"],
-  "ignoreRegExpList": ["\\b\\d+[a-z]{1,2}\\b"],
-  "allowCompoundWords": true,
-  "words": [
-    "nvim",
-    "neovim",
-    "alacritty",
-    "gruvbox",
-    "dotenv",
-    "yanky",
-    "lspconfig",
-    "stylelua",
-    "luarc",
-    "floaterm",
-    "autocmd",
-    "clippy",
-    "pbcopy",
-    "rustfmt",
-    "stylua",
-    "nvimtree",
-    "deno",
-    "clangd",
-    "nvterm",
-    "bufnr",
-    "bufs"
-  ],
+  "words": [],
+  "allowCompoundWords": false,
+  "dictionaries": ["en_US", "node", "typescript", "my_word", "programming_word", "knowre_bridge"],
   "language": "en",
   "dictionaryDefinitions": [
     {
-      "name": "neovim",
-      "addWords": true,
-      "path": "~/.config/nvim/lua/custom/cspell/my-dictionary.txt"
+      "path": "~/.config/nvim/lua/custom/cspell/my-dictionary.txt",
+      "name": "my_word",
+      "addWords": true
+    },
+    {
+      "path": "~/.config/nvim/lua/custom/cspell/programming.txt",
+      "name": "programming_word",
+      "addWords": true
+    },
+    {
+      "path": "~/.config/nvim/lua/custom/cspell/knowre-bridge.txt",
+      "name": "knowre_bridge",
+      "addWords": true
     }
-  ]
+  ],
+  "ignorePaths": ["node_modules", ".git", ".vscode"],
+  "version": "0.2",
+  "ignoreRegExpList": ["\\b\\d+[a-z]{1,2}\\b"],
+  "flagWords": ["histroy", "calender"]
 }
-

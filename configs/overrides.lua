@@ -14,6 +14,7 @@ M.treesitter = {
     "markdown_inline",
     "json",
     "rust",
+    "http",
   },
   indent = {
     enable = true,
@@ -44,6 +45,10 @@ M.mason = {
     -- c/cpp stuff
     -- "clangd",
     -- "clang-format",
+    "yaml-language-server",
+    "bash-language-server",
+    "shfmt",
+    "yamlfmt",
   },
 }
 
@@ -90,6 +95,30 @@ M.telescope = {
     oldfiles = {
       cwd_only = true,
     },
+  },
+}
+
+M.copilot = {
+  -- Possible configurable fields can be found on:
+  -- https://github.com/zbirenbaum/copilot.lua#setup-and-configuration
+  suggestion = {
+    enable = false,
+  },
+  panel = {
+    enable = false,
+  },
+  filetypes = { ["*"] = true },
+}
+
+-- for copilot-cmp
+M.cmp = {
+  sources = {
+    { name = "nvim_lsp", group_index = 2 },
+    { name = "copilot", group_index = 2 },
+    { name = "luasnip", group_index = 2 },
+    { name = "buffer", group_index = 2 },
+    { name = "nvim_lua", group_index = 2 },
+    { name = "path", group_index = 2 },
   },
 }
 

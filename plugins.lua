@@ -16,6 +16,10 @@ local plugins = {
         },
       },
       "neovim/nvim-lspconfig",
+      {
+        "folke/trouble.nvim",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+      },
     },
     config = function()
       require "plugins.configs.lspconfig"
@@ -59,11 +63,30 @@ local plugins = {
     event = { "CmdlineEnter", "InsertEnter" },
     dependencies = {
       "hrsh7th/cmp-cmdline",
+      {
+        "zbirenbaum/copilot-cmp",
+        config = true,
+      },
     },
     config = function(_, opts)
       require "custom.configs.cmp"
+
+      local cmp = require "cmp"
+
+      opts.preselect = cmp.PreselectMode.None
+
+      opts.mapping["<CR>"] = cmp.mapping.confirm {
+        behavior = cmp.ConfirmBehavior.Replace,
+        select = false,
+      }
+
+      opts.completion = {
+        completeopt = "menu,menuone,noinsert,noselect",
+      }
+
       require("cmp").setup(opts)
     end,
+    opts = overrides.cmp,
   },
 
   {
@@ -89,13 +112,7 @@ local plugins = {
   {
     "nvim-pack/nvim-spectre",
     cmd = { "Spectre" },
-    opts = {
-      default = {
-        replace = {
-          cmd = "oxi",
-        },
-      },
-    },
+    config = true,
   },
 
   {
@@ -215,6 +232,42 @@ local plugins = {
       vim.keymap.set("n", "zR", require("ufo").openAllFolds)
       vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
     end,
+  },
+
+  {
+    "kylechui/nvim-surround",
+    keys = { "ys", "ds", "cs" },
+    version = "*",
+    config = true,
+  },
+
+  {
+    "andrewferrier/debugprint.nvim",
+    opts = {
+      print_tag = "DEBUG_🚀",
+    },
+    keys = { "g?" },
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+    },
+    init = function()
+      vim.keymap.set("n", "g?d", require("debugprint").deleteprints, { desc = "DeleteDebugPrints" })
+    end,
+    version = "*",
+  },
+
+  {
+    "zbirenbaum/copilot.lua",
+    event = "InsertEnter",
+    opts = overrides.copilot,
+  },
+
+  {
+    "ggandor/leap.nvim",
+    config = function()
+      require("leap").add_default_mappings()
+    end,
+    event = "VeryLazy",
   },
 }
 

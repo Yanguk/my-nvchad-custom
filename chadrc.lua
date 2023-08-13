@@ -22,14 +22,4 @@ M.plugins = "custom.plugins"
 -- check core.mappings for table structure
 M.mappings = require "custom.mappings"
 
-M.lazy_nvim = {
-  performance = {
-    rtp = {
-      disabled_plugins = vim.tbl_filter(function(name)
-        return name ~= "editorconfig"
-      end, require("plugins.configs.lazy_nvim").performance.rtp.disabled_plugins),
-    },
-  },
-}
-
 return M
