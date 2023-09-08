@@ -257,6 +257,15 @@ local plugins = {
   },
 
   {
+    "rcarriga/nvim-notify",
+    event = "VeryLazy",
+    opts = { stages = "static" },
+    init = function()
+      vim.notify = require "notify"
+    end,
+  },
+
+  {
     "zbirenbaum/copilot.lua",
     event = "InsertEnter",
     opts = overrides.copilot,

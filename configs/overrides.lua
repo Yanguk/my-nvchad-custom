@@ -30,7 +30,7 @@ M.treesitter = {
 M.mason = {
   ensure_installed = {
     -- lua stuff
-    -- "lua-language-server",
+    "lua-language-server",
     "stylua",
 
     -- web dev stuff
@@ -49,6 +49,7 @@ M.mason = {
     "bash-language-server",
     "shfmt",
     "yamlfmt",
+    "taplo",
   },
 }
 
@@ -113,8 +114,8 @@ M.copilot = {
 -- for copilot-cmp
 M.cmp = {
   sources = {
-    { name = "nvim_lsp", group_index = 2 },
     { name = "copilot", group_index = 2 },
+    { name = "nvim_lsp", group_index = 2 },
     { name = "luasnip", group_index = 2 },
     { name = "buffer", group_index = 2 },
     { name = "nvim_lua", group_index = 2 },

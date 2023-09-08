@@ -11,7 +11,7 @@ M.general = {
 M.buffer = {
   n = {
     ["<leader>tx"] = {
-      "<cmd>:lua require('nvchad_ui.tabufline').closeAllBufs() <CR>",
+      "<cmd>:lua require('nvchad.tabufline').closeAllBufs() <CR>",
       "Close all bufs",
     },
   },
@@ -63,7 +63,7 @@ M.diff_view = {
 
 M.icon_picker = {
   n = {
-    ["<leader>ip"] = { "<cmd>IconPickerNormal emoji nerd_font<CR>", "Open icon picker" },
+    ["<leader>ip"] = { "<cmd>IconPickerNormal emoji nerd_font symbols<CR>", "Open icon picker" },
   },
 }
 

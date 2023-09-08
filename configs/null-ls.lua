@@ -14,6 +14,7 @@ local sources = {
   b.formatting.rustfmt.with { filetypes = { "rust" } },
   b.formatting.shfmt,
   b.formatting.yamlfmt,
+  b.formatting.taplo,
 
   cspell.diagnostics.with({ config = cspell_config }),
   cspell.code_actions.with({ config = cspell_config }),
