@@ -9,7 +9,7 @@ M.treesitter = {
     "javascript",
     "typescript",
     "tsx",
-    -- "c",
+    "c",
     "markdown",
     "markdown_inline",
     "json",
@@ -17,12 +17,16 @@ M.treesitter = {
     "http",
   },
   indent = {
-    enable = true,
+    enable = false,
+    -- disable = { "rust", 'typescript' },
   },
   autotag = {
     enable = true,
   },
   context_commentstring = {
+    enable = true,
+  },
+  highlight = {
     enable = true,
   },
 }
