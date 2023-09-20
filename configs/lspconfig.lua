@@ -2,6 +2,11 @@ local lspconfig = require "lspconfig"
 
 local on_attach = require("plugins.configs.lspconfig").on_attach
 local capabilities = require("plugins.configs.lspconfig").capabilities
+-- nvim-ufo
+capabilities.textDocument.foldingRange = {
+    dynamicRegistration = false,
+    lineFoldingOnly = true
+}
 
 local util = require "custom.configs.util"
 
@@ -16,7 +21,6 @@ lspconfig["tsserver"].setup {
 }
 
 lspconfig["eslint"].setup {
-  capabilities = capabilities,
   on_attach = function(client, bufnr)
     on_attach(client, bufnr)
 
@@ -25,6 +29,7 @@ lspconfig["eslint"].setup {
       command = "EslintFixAll",
     })
   end,
+  capabilities = capabilities,
   settings = util.eslint_settings,
 }
 

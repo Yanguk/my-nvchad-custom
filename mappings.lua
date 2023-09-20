@@ -81,7 +81,8 @@ M.gitsigns = {
 
 M.nvimtree = {
   n = {
-    ["<leader>fr"] = { ":NvimTreeRefresh <CR>", "Refresh nvimtree" },
+    ["<leader>tf"] = { ":NvimTreeRefresh <CR>", "Refresh nvimtree" },
+    ["<leader>tr"] = { ":NvimTreeResize ", "Resize nvimtree" },
   },
 }
 

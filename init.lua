@@ -34,12 +34,6 @@ opt.wrap = false
 -- don't create backup files
 opt.swapfile = false
 
--- resize
-keymap.set("n", "=", [[<cmd>vertical resize +5<cr>]]) -- make the window bigger vertically
-keymap.set("n", "-", [[<cmd>vertical resize -5<cr>]]) -- make the window smaller vertically
-keymap.set("n", "+", [[<cmd>horizontal resize +2<cr>]]) -- make the window bigger horizontally by pressing shift and =
-keymap.set("n", "_", [[<cmd>horizontal resize -2<cr>]]) -- make the window smaller horizontally by pressing shift and -
-
 -- UFO folding
 o.foldcolumn = "1" -- '0' is not bad
 o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value

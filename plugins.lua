@@ -15,7 +15,6 @@ local plugins = {
           "davidmh/cspell.nvim",
         },
       },
-      "neovim/nvim-lspconfig",
       {
         "folke/trouble.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -223,11 +222,7 @@ local plugins = {
         end,
       },
     },
-    opts = {
-      provider_selector = function()
-        return { "treesitter", "indent" }
-      end,
-    },
+    config = true,
     init = function()
       vim.keymap.set("n", "zR", require("ufo").openAllFolds)
       vim.keymap.set("n", "zM", require("ufo").closeAllFolds)

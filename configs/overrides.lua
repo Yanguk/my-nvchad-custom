@@ -15,9 +15,10 @@ M.treesitter = {
     "json",
     "rust",
     "http",
+    "toml",
   },
   indent = {
-    enable = false,
+    enable = true,
     -- disable = { "rust", 'typescript' },
   },
   autotag = {
